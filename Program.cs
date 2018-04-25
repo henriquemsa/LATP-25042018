@@ -1,0 +1,52 @@
+﻿/*
+ * Faça um programa que contenha um método que receba por parâmetro a base maior, a base menor
+ * e a altura de um trapézio. Calcule, retorne e mostre a sua área.
+ *	                                A = ((B + b) * h) / 2
+ *  (B = base maior; b = base menor; h = altura)
+ */
+
+using System;
+
+namespace Exercicio1
+{
+    class Program
+    {
+        // Método para calcular a área de um trapézio, onde:
+        // a = base maior
+        // b = base menor
+        // c = altura
+        public static double Calcula(double a, double b, double c)
+        {
+            double resultado;
+
+            // Calculando a área do trapézio
+            resultado = (((a + b) * c) / 2);
+
+            return resultado;
+        }
+
+        static void Main(string[] args)
+        {
+            // a = base maior
+            // b = base menor
+            // c = altura
+            double a, b, c, resultado;
+
+            Console.Clear(); // Limpa tela
+            Console.WriteLine(); // Pula linha
+            Console.Write("Entre com o valor da base maior: ");
+            a = double.Parse(Console.ReadLine());
+            Console.Write("Entre com o valor da base menor: ");
+            b = double.Parse(Console.ReadLine());
+            Console.Write("Entre com o valor da altura: ");
+            c = double.Parse(Console.ReadLine());
+
+            resultado = Calcula(a, b, c);
+
+            Console.Clear(); // Limpa tela
+            Console.WriteLine(); // Pula linha
+            Console.WriteLine("A área do trapézio é: " + resultado);
+            Console.ReadKey();
+        }
+    }
+}
