@@ -1,51 +1,62 @@
 ﻿/*
- * Faça um programa que contenha um método que receba por parâmetro a base maior, a base menor
- * e a altura de um trapézio. Calcule, retorne e mostre a sua área.
- *	                                A = ((B + b) * h) / 2
- *  (B = base maior; b = base menor; h = altura)
+ * Faça um método que leia 10 números inteiros e positivos, calcule e retorne a média aritmética dos mesmos.
  */
 
 using System;
 
-namespace Exercicio1
+namespace Exercicio2
 {
     class Program
     {
-        // Método para calcular a área de um trapézio, onde:
-        // a = base maior
-        // b = base menor
-        // c = altura
-        public static double Calcula(double a, double b, double c)
+        // Metódo para calcular a media, onde: 
+        // n = soma de todos os termos
+        // q = numero de termos
+        static double Media ()
         {
-            double resultado;
+            double resultado = 0, valor;
 
-            // Calculando a área do trapézio
-            resultado = (((a + b) * c) / 2);
+            // Laço para ler 10 números e acumular seus valores em 'resultado'
+            for (int i = 1; i <= 10; i++)
+            {
+                // Recebendo o valor do usuário
+                Console.Clear(); // Limpa tela
+                Console.WriteLine(); // Pula linha
+                Console.Write("Entre com o valor do {0}º termo: ", i);
+                valor = int.Parse(Console.ReadLine());
+
+                // Testa se o número inserido é positivo
+                if (valor >= 0)
+                {
+                    // Acumulando valor
+                    resultado = resultado + valor;
+                }
+                else
+                {
+                    // Tratando erro de inserção de valor
+                    i--;
+                    Console.WriteLine(); // Pula linha
+                    Console.WriteLine("O valor inserido não é válido, apenas números inteiros e positivos são aceitos.");
+                    Console.WriteLine("Pressione qualquer tecla para continuar...");
+                    Console.ReadKey();
+                }
+            }
+
+            // Calculando a média
+            resultado = resultado / 10;
 
             return resultado;
         }
 
         static void Main(string[] args)
         {
-            // a = base maior
-            // b = base menor
-            // c = altura
-            double a, b, c, resultado;
+            // Declaração de variáveis
+            double resultado;
 
-            Console.Clear(); // Limpa tela
-            Console.WriteLine(); // Pula linha
-            Console.Write("Entre com o valor da base maior: ");
-            a = double.Parse(Console.ReadLine());
-            Console.Write("Entre com o valor da base menor: ");
-            b = double.Parse(Console.ReadLine());
-            Console.Write("Entre com o valor da altura: ");
-            c = double.Parse(Console.ReadLine());
+            // Chamando o método e guardando seu valor de retorno em 'resultado'
+            resultado = Media();
 
-            resultado = Calcula(a, b, c);
-
-            Console.Clear(); // Limpa tela
-            Console.WriteLine(); // Pula linha
-            Console.WriteLine("A área do trapézio é: " + resultado);
+            // Imprimindo resultado
+            Console.WriteLine("O valor da média dos 10 termos inseridos é: " + resultado);
             Console.ReadKey();
         }
     }
